@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.4
 
 import PackageDescription
 
@@ -7,7 +7,7 @@ let package = Package(
     products: 
     [
         .library(name: "Noise", targets: ["Noise"]),
-        .executable(name: "noise-tests", targets: ["NoiseTests"])
+        //.executable(name: "noise-tests", targets: ["NoiseTests"])
     ],
     dependencies: 
     [
@@ -16,6 +16,10 @@ let package = Package(
     targets: 
     [
         .target(name: "Noise", path: "sources/noise"),
-        .target(name: "NoiseTests", dependencies: ["Noise", "PNG"], path: "tests/noise")
+        /*.executableTarget(name: "NoiseTests",
+                dependencies: ["Noise",
+                               .product(name: "PNG", package: "png")
+                              ],
+                path: "tests/noise")*/
     ]
 )
